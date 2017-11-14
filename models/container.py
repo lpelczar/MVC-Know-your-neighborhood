@@ -1,6 +1,6 @@
-from voivodeship import Voivodeship
-from county_region import CountyRegion
-from county import County
+from models.voivodeship import Voivodeship
+from models.county_region import CountyRegion
+from models.county import County
 import csv
 
 
