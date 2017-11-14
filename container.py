@@ -1,0 +1,3 @@
+class RegionsContainer:
+
+    regions = []
