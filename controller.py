@@ -9,6 +9,7 @@ class Controller:
         self.container = Container()
 
     def start(self):
+        self.container.load_data_from_file()
         os.system('clear')
         View.display_menu()
         while True:
@@ -19,4 +20,7 @@ class Controller:
                 self.list_statistics()
 
     def list_statistics(self):
-        
+        statistics = {}
+        statistics['województwo'] = self.container.get_voivodeship_quantity()
+        statistics['powiat'] = self.container.get_county_quantity()
+        print(statistics)
