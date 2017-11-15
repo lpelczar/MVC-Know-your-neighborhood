@@ -5,6 +5,7 @@ class County:
         self.name = name
         self.number = number
         self.is_city = is_city
+        self.communities_number = len(self.county_regions)
 
     def add_county_region(self, county_region):
         self.county_regions.append(county_region)

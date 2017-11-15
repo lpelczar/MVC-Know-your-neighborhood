@@ -21,6 +21,8 @@ class Controller:
             View.display_menu()
             if option == '1':
                 self.list_statistics()
+            elif option == '3':
+                self.display_county_with_max_communities()
 
     def list_statistics(self):
         stats = {}
@@ -30,3 +32,7 @@ class Controller:
         for county_region in self.COUNTY_REGIONS:
             stats[county_region] = self.cont.get_county_region_quantity(county_region)
         View.display_stats_table(stats)
+
+    def display_county_with_max_communities(self):
+        county = self.cont.get_county_name_with_max_communities()
+        View.display_county_with_max_communities(county.name)

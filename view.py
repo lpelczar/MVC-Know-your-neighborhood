@@ -24,3 +24,7 @@ class View:
                    [[v, k] for k, v in stats.items()])
         print(t.draw())
         input('\nPress ENTER to continue ')
+
+    @staticmethod
+    def display_county_with_max_communities(county_name):
+        print('Name of county with maximum number of communities: {}'.format(county_name))

@@ -1,6 +1,7 @@
 from models.voivodeship import Voivodeship
 from models.county_region import CountyRegion
 from models.county import County
+from operator import attrgetter
 import csv
 
 
@@ -44,6 +45,12 @@ class Container:
                     if region.region_type == region_type:
                         county_regions += 1
         return county_regions
+
+    def get_county_name_with_max_communities(self):
+        county = None
+        for voivo in self.voivodeships:
+            county = max(voivo.counties, key=attrgetter('communities_number'))
+        return county
 
     def load_data_from_file(self):
         FILE_NAME = 'malopolska.csv'
