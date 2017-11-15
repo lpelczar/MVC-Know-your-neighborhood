@@ -43,9 +43,11 @@ class Controller:
         View.display_stats_table(stats)
 
     def display_three_cities_with_longest_names(self):
+        CITIES_AMOUNT_TO_SHOW = 3
+
         cities = self.cont.get_cities_by_name_length()
         sorted_cities = self.cont.sort_locations_by_name_length(cities)
-        View.display_locations(sorted_cities[:3])
+        View.display_locations(sorted_cities[:CITIES_AMOUNT_TO_SHOW])
 
     def display_county_with_max_communities(self):
         county = self.cont.get_county_name_with_max_communities()

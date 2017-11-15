@@ -1,5 +1,9 @@
 from collections import Counter
 
+COUNTY = 'powiat'
+CITY = 'miasto'
+CITY_COUNTY = 'miasto na prawach powiatu'
+
 
 class County:
 
@@ -9,14 +13,14 @@ class County:
         self.number = number
         self.is_city = is_city
         self.communities_number = len(self.county_regions)
-        self.region_type = 'powiat' if not self.is_city else 'miasto na prawach powiatu'
+        self.region_type = COUNTY if not self.is_city else CITY_COUNTY
 
     def add_county_region(self, county_region):
         self.county_regions.append(county_region)
 
     def get_cities(self):
         cities = []
-        cities.extend([city for city in self.county_regions if city.region_type == 'miasto'])
+        cities.extend([city for city in self.county_regions if city.region_type == CITY])
         if self.is_city:
             cities.append(self)
         return cities
