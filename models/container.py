@@ -28,8 +28,22 @@ class Container:
             counties += len(voivo.counties)
         return counties
 
-    def get_urban_commune_quantity(self):
-        pass
+    def get_city_county_quantity(self):
+        counties = 0
+        for voivo in self.voivodeships:
+            for county in voivo.counties:
+                if county.is_city:
+                    counties += 1
+        return counties
+
+    def get_county_region_quantity(self, region_type):
+        county_regions = 0
+        for voivo in self.voivodeships:
+            for county in voivo.counties:
+                for region in county.county_regions:
+                    if region.region_type == region_type:
+                        county_regions += 1
+        return county_regions
 
     def load_data_from_file(self):
         FILE_NAME = 'malopolska.csv'

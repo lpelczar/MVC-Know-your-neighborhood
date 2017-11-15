@@ -1,3 +1,6 @@
+from texttable import Texttable
+
+
 class View:
 
     @staticmethod
@@ -13,3 +16,11 @@ class View:
     @staticmethod
     def get_option_input():
         return input('Choose option: ')
+
+    @staticmethod
+    def display_stats_table(stats: dict):
+        t = Texttable()
+        t.add_rows([['Ilość', 'MAŁOPOLSKIE']] +
+                   [[v, k] for k, v in stats.items()])
+        print(t.draw())
+        input('\nPress ENTER to continue ')

@@ -5,11 +5,14 @@ import os
 
 class Controller:
 
+    COUNTY_REGIONS = ['gmina miejska', 'gmina wiejska', 'gmina miejsko-wiejska',
+                      'obszar wiejski', 'miasto', 'delegatura']
+
     def __init__(self):
-        self.container = Container()
+        self.cont = Container()
 
     def start(self):
-        self.container.load_data_from_file()
+        self.cont.load_data_from_file()
         os.system('clear')
         View.display_menu()
         while True:
@@ -20,7 +23,10 @@ class Controller:
                 self.list_statistics()
 
     def list_statistics(self):
-        statistics = {}
-        statistics['województwo'] = self.container.get_voivodeship_quantity()
-        statistics['powiat'] = self.container.get_county_quantity()
-        print(statistics)
+        stats = {}
+        stats[Container.VOIVODESHIP] = self.cont.get_voivodeship_quantity()
+        stats[Container.COUNTY] = self.cont.get_county_quantity()
+        stats[Container.CITY_COUNTY] = self.cont.get_city_county_quantity()
+        for county_region in self.COUNTY_REGIONS:
+            stats[county_region] = self.cont.get_county_region_quantity(county_region)
+        View.display_stats_table(stats)
