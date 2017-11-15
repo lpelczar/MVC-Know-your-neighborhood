@@ -44,7 +44,10 @@ class View:
 
     @staticmethod
     def display_searched_locations(locations):
-        t = Texttable()
-        t.add_rows([['LOCATION', 'TYPE']] +
-                   [[location.name, location.region_type] for location in locations])
-        print(t.draw())
+        if not locations:
+            print('\nThere is no location starting with this name!')
+        else:
+            t = Texttable()
+            t.add_rows([['LOCATION', 'TYPE']] +
+                       [[location.name, location.region_type] for location in locations])
+            print(t.draw())

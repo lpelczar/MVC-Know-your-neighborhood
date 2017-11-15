@@ -41,9 +41,7 @@ class Container:
         county_regions = 0
         for voivo in self.voivodeships:
             for county in voivo.counties:
-                for region in county.county_regions:
-                    if region.region_type == region_type:
-                        county_regions += 1
+                county_regions += county.get_county_region_quantity(region_type)
         return county_regions
 
     def get_county_name_with_max_communities(self):

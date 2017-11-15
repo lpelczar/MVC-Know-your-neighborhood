@@ -28,6 +28,13 @@ class County:
     def get_locations_startswith(self, query):
         return [region for region in self.county_regions if region.name.startswith(query)]
 
+    def get_county_region_quantity(self, region_type):
+        regions_quantity = 0
+        for region in self.county_regions:
+            if region.region_type == region_type:
+                regions_quantity += 1
+        return regions_quantity
+
     def __str__(self):
         return 'Name: {}'.format(self.name)
 
