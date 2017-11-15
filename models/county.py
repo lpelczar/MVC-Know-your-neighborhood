@@ -57,6 +57,7 @@ class County:
         """
         Returns quantity of county regions with given region type
 
+        :param region_type: str -> type of the region
         :return: int -> quantity of regions with given type
         """
         regions_quantity = 0
