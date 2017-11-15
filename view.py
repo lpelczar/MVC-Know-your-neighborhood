@@ -37,3 +37,14 @@ class View:
     def display_locations_with_more_than_one_category(locations):
         for _ in locations:
             print('Name: ' + _)
+
+    @staticmethod
+    def get_query():
+        return input('Searching for: ')
+
+    @staticmethod
+    def display_searched_locations(locations):
+        t = Texttable()
+        t.add_rows([['LOCATION', 'TYPE']] +
+                   [[location.name, location.region_type] for location in locations])
+        print(t.draw())
