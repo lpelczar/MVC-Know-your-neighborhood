@@ -10,6 +10,13 @@ class County:
     def add_county_region(self, county_region):
         self.county_regions.append(county_region)
 
+    def get_cities(self):
+        cities = []
+        cities.extend([city for city in self.county_regions if city.region_type == 'miasto'])
+        if self.is_city:
+            cities.append(self)
+        return cities
+
     def __str__(self):
         return 'Name: {}'.format(self.name)
 

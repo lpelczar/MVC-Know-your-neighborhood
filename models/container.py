@@ -52,6 +52,14 @@ class Container:
             county = max(voivo.counties, key=attrgetter('communities_number'))
         return county
 
+    def get_cities_sorted_by_name_length(self):
+        cities = []
+        for voivo in self.voivodeships:
+            for county in voivo.counties:
+                cities.extend(county.get_cities())
+        sorted_cities = sorted(cities, key=lambda x: len(x.name), reverse=True)
+        return sorted_cities
+
     def load_data_from_file(self):
         FILE_NAME = 'malopolska.csv'
         NAME = 'nazwa'

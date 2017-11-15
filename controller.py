@@ -1,6 +1,7 @@
 from models.container import Container
 from view import View
 import os
+import sys
 
 
 class Controller:
@@ -21,8 +22,12 @@ class Controller:
             View.display_menu()
             if option == '1':
                 self.list_statistics()
+            elif option == '2':
+                self.display_three_cities_with_longest_names()
             elif option == '3':
                 self.display_county_with_max_communities()
+            elif option == '0':
+                sys.exit()
 
     def list_statistics(self):
         stats = {}
@@ -32,6 +37,10 @@ class Controller:
         for county_region in self.COUNTY_REGIONS:
             stats[county_region] = self.cont.get_county_region_quantity(county_region)
         View.display_stats_table(stats)
+
+    def display_three_cities_with_longest_names(self):
+        cities = self.cont.get_cities_sorted_by_name_length()
+        View.display_three_cities_with_longest_names(cities[:3])
 
     def display_county_with_max_communities(self):
         county = self.cont.get_county_name_with_max_communities()
