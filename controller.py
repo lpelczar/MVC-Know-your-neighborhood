@@ -13,6 +13,9 @@ class Controller:
         self.cont = Container()
 
     def start(self):
+        """
+        Loads data from file and controls the program menu
+        """
         self.cont.load_data_from_file()
         os.system('clear')
         View.display_menu()
@@ -34,6 +37,9 @@ class Controller:
                 sys.exit()
 
     def list_statistics(self):
+        """
+        Lists statistics for given data in format: Amount - Location Type
+        """
         stats = {}
         stats[Container.VOIVODESHIP] = self.cont.get_voivodeship_quantity()
         stats[Container.COUNTY] = self.cont.get_county_quantity()
@@ -43,6 +49,9 @@ class Controller:
         View.display_stats_table(stats)
 
     def display_three_cities_with_longest_names(self):
+        """
+        Displays three cities which have the longest names
+        """
         CITIES_AMOUNT_TO_SHOW = 3
 
         cities = self.cont.get_cities()
@@ -50,14 +59,23 @@ class Controller:
         View.display_locations(sorted_cities[:CITIES_AMOUNT_TO_SHOW])
 
     def display_county_with_max_communities(self):
+        """
+        Displays county which have maximum number of communities
+        """
         county = self.cont.get_county_with_max_communities()
         View.display_county_with_max_communities(county.name)
 
     def display_locations_with_more_than_one_category(self):
+        """
+        Displays locations which belong to more than one category
+        """
         locations = self.cont.get_locations_with_more_than_one_category()
         View.display_locations_with_more_than_one_category(locations)
 
     def advanced_search(self):
+        """
+        Handle advanced searching - gets all locations which starts with given query
+        """
         query = View.get_query()
         locations = self.cont.get_locations_startswith(query)
         sorted_locations = self.cont.sort_locations_by_name_and_type(locations)

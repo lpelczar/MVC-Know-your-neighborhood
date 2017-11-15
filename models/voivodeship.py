@@ -11,4 +11,9 @@ class Voivodeship:
         self.region_type = VOIVODESHIP
 
     def add_county(self, county):
+        """
+        Adds given county to Voivodeship
+
+        :param county: County -> county which we want to add to Voivodeship
+        """
         self.counties.append(county)
