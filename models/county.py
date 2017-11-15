@@ -34,9 +34,3 @@ class County:
             if region.region_type == region_type:
                 regions_quantity += 1
         return regions_quantity
-
-    def __str__(self):
-        return 'Name: {}'.format(self.name)
-
-    def __repr__(self):
-        return 'Name: {}'.format(self.name)

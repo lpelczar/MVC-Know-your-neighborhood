@@ -20,7 +20,7 @@ class View:
     @staticmethod
     def display_stats_table(stats: dict):
         t = Texttable()
-        t.add_rows([['Ilość', 'MAŁOPOLSKIE']] +
+        t.add_rows([['AMOUNT', 'MAŁOPOLSKIE']] +
                    [[v, k] for k, v in stats.items()])
         print(t.draw())
 
