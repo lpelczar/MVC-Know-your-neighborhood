@@ -26,6 +26,8 @@ class Controller:
                 self.display_three_cities_with_longest_names()
             elif option == '3':
                 self.display_county_with_max_communities()
+            elif option == '4':
+                self.display_locations_with_more_than_one_category()
             elif option == '0':
                 sys.exit()
 
@@ -40,8 +42,12 @@ class Controller:
 
     def display_three_cities_with_longest_names(self):
         cities = self.cont.get_cities_sorted_by_name_length()
-        View.display_three_cities_with_longest_names(cities[:3])
+        View.display_locations(cities[:3])
 
     def display_county_with_max_communities(self):
         county = self.cont.get_county_name_with_max_communities()
         View.display_county_with_max_communities(county.name)
+
+    def display_locations_with_more_than_one_category(self):
+        locations = self.cont.get_locations_with_more_than_one_category()
+        View.display_locations_with_more_than_one_category(locations)

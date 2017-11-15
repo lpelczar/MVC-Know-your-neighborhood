@@ -60,6 +60,13 @@ class Container:
         sorted_cities = sorted(cities, key=lambda x: len(x.name), reverse=True)
         return sorted_cities
 
+    def get_locations_with_more_than_one_category(self):
+        locations = []
+        for voivo in self.voivodeships:
+            for county in voivo.counties:
+                locations.extend(county.get_regions_with_more_than_one_type())
+        return locations
+
     def load_data_from_file(self):
         FILE_NAME = 'malopolska.csv'
         NAME = 'nazwa'

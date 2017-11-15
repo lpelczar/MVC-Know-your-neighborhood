@@ -29,6 +29,11 @@ class View:
         print('Name of county with maximum number of communities: {}'.format(county_name))
 
     @staticmethod
-    def display_three_cities_with_longest_names(cities):
-        for _ in cities:
+    def display_locations(locations):
+        for _ in locations:
             print('Name: {}'.format(_.name))
+
+    @staticmethod
+    def display_locations_with_more_than_one_category(locations):
+        for _ in locations:
+            print('Name: ' + _)

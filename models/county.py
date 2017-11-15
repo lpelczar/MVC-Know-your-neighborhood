@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 class County:
 
     def __init__(self, name, number, is_city):
@@ -16,6 +19,10 @@ class County:
         if self.is_city:
             cities.append(self)
         return cities
+
+    def get_regions_with_more_than_one_type(self):
+        counter = Counter([county.name for county in self.county_regions])
+        return [k for k, v in counter.items() if v > 1]
 
     def __str__(self):
         return 'Name: {}'.format(self.name)
