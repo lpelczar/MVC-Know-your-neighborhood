@@ -20,7 +20,7 @@ V. Use branches on Git
 
 ## Sample screenshots
 
-![c1](http://i63.tinypic.com/dbmp2w.png)
+![c1](https://raw.github.com/lpelczar/MVC-Know-your-neighborhood/master/UML-Neighbourhood.jpg)
 
 ## More info
 
